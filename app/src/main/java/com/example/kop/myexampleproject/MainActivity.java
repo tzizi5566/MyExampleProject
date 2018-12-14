@@ -1,4 +1,4 @@
-package com.example.kop.myexampleproject.ui;
+package com.example.kop.myexampleproject;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,7 +6,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import com.example.kop.myexampleproject.R;
+import com.example.kop.myexampleproject.ui.recyclerview.RecyclerActivity;
 
 public class MainActivity extends AppCompatActivity {
 
