@@ -19,6 +19,7 @@ public class MyApplication extends Application {
         Utils.init(this);
 
 //        这是主分支提交的代码
+//        这是主分支提交的代码2
     }
 
     public static MyApplication getApplication() {
