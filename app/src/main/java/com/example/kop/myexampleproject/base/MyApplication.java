@@ -12,10 +12,13 @@ public class MyApplication extends Application {
 
     private static MyApplication sMyApplication;
 
-    @Override public void onCreate() {
+    @Override
+    public void onCreate() {
         super.onCreate();
         sMyApplication = this;
         Utils.init(this);
+
+//        这是test1分支提交的代码
     }
 
     public static MyApplication getApplication() {
