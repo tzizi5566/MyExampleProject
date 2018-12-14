@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">MyExampleProject</string>
+
+    <string name="permission_grant">去授权</string>
+    <string name="permission_cancel">取消</string>
+    <string name="permission_setting">去设置</string>
+    <string name="permission_exit">退出</string>
+    <string name="permission_calendar">\"日历\"</string>
+    <string name="permission_camera">\"相机\"</string>
+    <string name="permission_contacts">\"通讯录\"</string>
+    <string name="permission_location">\"位置\"</string>
+    <string name="permission_microphone">\"麦克风\"</string>
+    <string name="permission_phone">\"电话\"</string>
+    <string name="permission_sensors">\"身体传感器\"</string>
+    <string name="permission_sms">\"短信\"</string>
+    <string name="permission_storage">\"存储\"</string>
+    <string name="permission_app">贵阳地铁需要访问&#160;</string>
+    <string name="permission">&#160;权限</string>
+    <string name="permission_luanch_app">贵阳地铁需要访问相关权限</string>
+</resources>
