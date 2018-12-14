@@ -20,6 +20,7 @@ public class MyApplication extends Application {
 
 //        这是主分支提交的代码
 //        这是主分支提交的代码2
+//        这是主分支提交的代码3
     }
 
     public static MyApplication getApplication() {
