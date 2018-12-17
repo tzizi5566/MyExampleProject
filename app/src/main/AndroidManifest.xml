@@ -33,6 +33,18 @@
             android:name="design_height_in_dp"
             android:value="644" />
 
+        <activity android:name=".ui.camera.CameraActivity"></activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.kop.myexampleproject.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_path" />
+        </provider>
+
     </application>
 
 </manifest>

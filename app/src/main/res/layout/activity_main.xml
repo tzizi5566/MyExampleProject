@@ -12,16 +12,16 @@
         android:id="@+id/btn_rv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="recycler"
+        android:text="recyclerview"
         android:textAllCaps="false"
         tools:ignore="HardcodedText"
         />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_region"
+        android:id="@+id/btn_camera"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="region"
+        android:text="camera"
         android:textAllCaps="false"
         app:layout_constraintLeft_toRightOf="@+id/btn_rv"
         />
