@@ -127,4 +127,9 @@ dependencies {
 
     //AndroidAutoSize
     implementation 'me.jessyan:autosize:1.0.6'
+
+    //Room
+    implementation 'androidx.room:room-runtime:2.1.0-alpha03'
+    annotationProcessor 'androidx.room:room-compiler:2.1.0-alpha03'
+    implementation 'androidx.room:room-rxjava2:2.1.0-alpha03'
 }

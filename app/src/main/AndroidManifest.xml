@@ -33,7 +33,7 @@
             android:name="design_height_in_dp"
             android:value="644" />
 
-        <activity android:name=".ui.camera.CameraActivity"></activity>
+        <activity android:name=".ui.camera.CameraActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -45,6 +45,9 @@
                 android:resource="@xml/file_path" />
         </provider>
 
+        <activity android:name=".ui.sqlite.RoomActivity" />
+        <activity android:name=".ui.path.PathActivity" />
+        <activity android:name=".ui.number.NumberActivity"></activity>
     </application>
 
 </manifest>
