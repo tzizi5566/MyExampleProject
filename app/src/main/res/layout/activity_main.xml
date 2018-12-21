@@ -1,29 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.MainActivity"
-    >
+    tools:context=".MainActivity">
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_rv"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="recycler"
+        android:text="recyclerview"
         android:textAllCaps="false"
-        tools:ignore="HardcodedText"
-        />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/btn_camera"
+        tools:ignore="HardcodedText" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_region"
-        android:layout_width="wrap_content"
+        android:id="@+id/btn_camera"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="region"
+        android:text="camera"
         android:textAllCaps="false"
         app:layout_constraintLeft_toRightOf="@+id/btn_rv"
-        />
+        app:layout_constraintRight_toLeftOf="@+id/btn_sqlite" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_sqlite"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="sqlite"
+        android:textAllCaps="false"
+        app:layout_constraintLeft_toRightOf="@+id/btn_camera"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_path"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="path view"
+        android:textAllCaps="false"
+        app:layout_constraintLeft_toLeftOf="@+id/btn_rv"
+        app:layout_constraintRight_toRightOf="@+id/btn_rv"
+        app:layout_constraintTop_toBottomOf="@+id/btn_rv" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_num"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="num view"
+        android:textAllCaps="false"
+        app:layout_constraintLeft_toLeftOf="@+id/btn_camera"
+        app:layout_constraintRight_toRightOf="@+id/btn_camera"
+        app:layout_constraintTop_toBottomOf="@+id/btn_camera" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_paging"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="paging"
+        android:textAllCaps="false"
+        app:layout_constraintLeft_toLeftOf="@+id/btn_sqlite"
+        app:layout_constraintRight_toRightOf="@+id/btn_sqlite"
+        app:layout_constraintTop_toBottomOf="@+id/btn_sqlite" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

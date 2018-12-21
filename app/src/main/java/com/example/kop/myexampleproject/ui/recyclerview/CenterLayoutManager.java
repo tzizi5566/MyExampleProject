@@ -1,4 +1,4 @@
-package com.example.kop.myexampleproject.ui;
+package com.example.kop.myexampleproject.ui.recyclerview;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.LinearSmoothScroller;
 import androidx.recyclerview.widget.RecyclerView;
 
 /**
- * 功    能: //TODO
+ * 功    能: 自定义LayoutManager 保证item居中
  * 创 建 人: KOP
  * 创建日期: 2018/10/29 16:45
  */

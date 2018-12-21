@@ -1,4 +1,4 @@
-package com.example.kop.myexampleproject.ui;
+package com.example.kop.myexampleproject.ui.recyclerview;
 
 import android.os.Bundle;
 import android.view.View;
