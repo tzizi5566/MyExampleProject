@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:value="http://schemas.android.com/tools">
     <string name="app_name">MyExampleProject</string>
 
     <string name="permission_grant">去授权</string>
@@ -17,4 +17,8 @@
     <string name="permission_app">贵阳地铁需要访问&#160;</string>
     <string name="permission">&#160;权限</string>
     <string name="permission_luanch_app">贵阳地铁需要访问相关权限</string>
+
+    <!-- 保留两位小数点 -->
+    <string name="point_two"><value:g id="AGE">%1$1.2f</value:g></string>
+
 </resources>

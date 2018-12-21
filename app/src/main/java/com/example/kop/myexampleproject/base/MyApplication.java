@@ -4,7 +4,7 @@ import android.app.Application;
 import com.blankj.utilcode.util.Utils;
 
 /**
- * 功    能: //TODO
+ * 功    能: App初始化
  * 创 建 人: KOP
  * 创建日期: 2018/10/9 11:16
  */
@@ -17,10 +17,6 @@ public class MyApplication extends Application {
         super.onCreate();
         sMyApplication = this;
         Utils.init(this);
-
-//        这是主分支提交的代码
-//        这是主分支提交的代码2
-//        这是主分支提交的代码3
     }
 
     public static MyApplication getApplication() {

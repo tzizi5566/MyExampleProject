@@ -1,4 +1,4 @@
-package com.example.kop.myexampleproject.ui;
+package com.example.kop.myexampleproject.ui.recyclerview;
 
 import android.view.View;
 import android.widget.ImageView;
@@ -40,11 +40,11 @@ public class StationListAdapter extends BaseQuickAdapter<String, BaseViewHolder>
         if (selectPos == helper.getAdapterPosition()) {
             ivStationStatus.setImageResource(R.drawable.ic_station_select);
             ivLocation.setVisibility(View.VISIBLE);
-            tvStation.setTextColor(mContext.getResources().getColor(R.color.app_basic_color));
+            tvStation.setTextColor(mContext.getResources().getColor(R.color.colorPrimary));
         } else {
             ivStationStatus.setImageResource(R.drawable.ic_station_normal);
             ivLocation.setVisibility(View.INVISIBLE);
-            tvStation.setTextColor(mContext.getResources().getColor(R.color.black));
+            tvStation.setTextColor(mContext.getResources().getColor(android.R.color.black));
         }
 
 //        if (helper.getAdapterPosition() == 0) {
