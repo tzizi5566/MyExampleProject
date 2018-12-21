@@ -14,7 +14,7 @@ import com.example.kop.myexampleproject.R;
 @RequiresApi(api = VERSION_CODES.LOLLIPOP)
 public class PathActivity extends AppCompatActivity {
 
-    @BindView(R.id.path_view)
+    @BindView(R.id.path_view1)
     PathView mPathView;
 
     @BindView(R.id.seek_bar)

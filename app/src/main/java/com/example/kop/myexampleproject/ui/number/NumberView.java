@@ -11,7 +11,7 @@ import com.blankj.utilcode.util.ConvertUtils;
 import com.example.kop.myexampleproject.R;
 
 /**
- * 功    能: //TODO
+ * 功    能: 自定义View练习
  * 创 建 人: KOP
  * 创建日期: 2018/12/18 14:01
  */

@@ -1,7 +1,7 @@
 package com.example.kop.myexampleproject.ui.path;
 
 import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
+import android.animation.Animator.AnimatorListener;
 import android.animation.AnimatorSet;
 import android.animation.ValueAnimator;
 import android.content.Context;
@@ -17,7 +17,7 @@ import android.view.View;
 import androidx.annotation.Nullable;
 
 /**
- * 功    能: //TODO
+ * 功    能: PathMeasure练习
  * 创 建 人: KOP
  * 创建日期: 2018/12/19 15:20
  */
@@ -29,11 +29,11 @@ public class PathMeasureView extends View {
 
     private Path mInPath;
 
-    private int mInRadius;
+    private float mInRadius;
 
     private Path mOutPath;
 
-    private int mOutRadius;
+    private float mOutRadius;
 
     private Paint mPaint;
 
@@ -105,11 +105,15 @@ public class PathMeasureView extends View {
             mHeight = minHeight;
         }
 
-        mOutRadius = (int) (Math.min(mWidth, mHeight) * 0.4f);
-        mInRadius = (int) (Math.min(mWidth, mHeight) * 0.32f);
+        mOutRadius = Math.min(mWidth, mHeight) / 2 * 0.8f;
+        mInRadius = Math.min(mWidth, mHeight) / 2 * 0.7f;
 
         setMeasuredDimension(mWidth, mHeight);
+    }
 
+    @Override
+    protected void onSizeChanged(final int w, final int h, final int oldw, final int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
         initPath();
         initAnim();
     }
@@ -174,14 +178,28 @@ public class PathMeasureView extends View {
             mTriangleValue = (float) animation.getAnimatedValue();
             invalidate();
         });
-        triangleAnim.addListener(new AnimatorListenerAdapter() {
+        triangleAnim.addListener(new AnimatorListener() {
+            @Override
+            public void onAnimationCancel(final Animator animation) {
+
+            }
+
             @Override
             public void onAnimationEnd(final Animator animation) {
-                super.onAnimationEnd(animation);
                 if (!isAnimTwoFinish) {
                     isAnimTwoFinish = true;
                     triangleAnim.setDuration(2000);
                 }
+            }
+
+            @Override
+            public void onAnimationRepeat(final Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationStart(final Animator animation) {
+
             }
         });
 
@@ -195,14 +213,6 @@ public class PathMeasureView extends View {
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.playSequentially(roundAnim, triangleAnim, triangleAnim2);
         animatorSet.start();
-        animatorSet.addListener(new AnimatorListenerAdapter() {
-            @Override
-            public void onAnimationEnd(final Animator animation) {
-                super.onAnimationEnd(animation);
-                isAnimTwoFinish = false;
-                animatorSet.start();
-            }
-        });
     }
 
     private void initPaint() {

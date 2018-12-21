@@ -14,7 +14,7 @@ import androidx.annotation.RequiresApi;
 import com.blankj.utilcode.util.ConvertUtils;
 
 /**
- * 功    能: //TODO
+ * 功    能: PathMeasure练习
  * 创 建 人: KOP
  * 创建日期: 2018/12/18 09:37
  */
@@ -141,10 +141,10 @@ public class PathView extends View {
                 359.9f);
 
         Path outRoundPath = new Path();
-        outRoundPath.addArc(contentWidth / 2 - roundCorner - 60,
-                contentHeight / 2 - roundCorner - 60,
-                contentWidth / 2 + roundCorner + 60,
-                contentHeight / 2 + roundCorner + 60,
+        outRoundPath.addArc(contentWidth / 2 - roundCorner - 50,
+                contentHeight / 2 - roundCorner - 50,
+                contentWidth / 2 + roundCorner + 50,
+                contentHeight / 2 + roundCorner + 50,
                 45,
                 359.9f);
 

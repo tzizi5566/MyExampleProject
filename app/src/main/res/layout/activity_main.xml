@@ -54,4 +54,14 @@
         app:layout_constraintRight_toRightOf="@+id/btn_camera"
         app:layout_constraintTop_toBottomOf="@+id/btn_camera" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_paging"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="paging"
+        android:textAllCaps="false"
+        app:layout_constraintLeft_toLeftOf="@+id/btn_sqlite"
+        app:layout_constraintRight_toRightOf="@+id/btn_sqlite"
+        app:layout_constraintTop_toBottomOf="@+id/btn_sqlite" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

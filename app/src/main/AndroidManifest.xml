@@ -47,7 +47,8 @@
 
         <activity android:name=".ui.sqlite.RoomActivity" />
         <activity android:name=".ui.path.PathActivity" />
-        <activity android:name=".ui.number.NumberActivity"></activity>
+        <activity android:name=".ui.number.NumberActivity" />
+        <activity android:name=".ui.paging.PagingActivity" />
     </application>
 
 </manifest>
