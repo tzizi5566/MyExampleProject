@@ -6,7 +6,9 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import com.example.kop.myexampleproject.ui.architecture.ChronoActivity;
 import com.example.kop.myexampleproject.ui.camera.CameraActivity;
+import com.example.kop.myexampleproject.ui.chart.RadarChartActivity;
 import com.example.kop.myexampleproject.ui.number.NumberActivity;
 import com.example.kop.myexampleproject.ui.paging.PagingActivity;
 import com.example.kop.myexampleproject.ui.path.PathActivity;
@@ -22,7 +24,8 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.btn_rv, R.id.btn_camera, R.id.btn_sqlite, R.id.btn_path, R.id.btn_num, R.id.btn_paging})
+    @OnClick({R.id.btn_rv, R.id.btn_camera, R.id.btn_sqlite, R.id.btn_path, R.id.btn_num, R.id.btn_paging,
+            R.id.btn_viewmodel, R.id.btn_chart})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_rv:
@@ -47,6 +50,14 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.btn_paging:
                 startActivity(new Intent(this, PagingActivity.class));
+                break;
+
+            case R.id.btn_viewmodel:
+                startActivity(new Intent(this, ChronoActivity.class));
+                break;
+
+            case R.id.btn_chart:
+                startActivity(new Intent(this, RadarChartActivity.class));
                 break;
         }
     }
