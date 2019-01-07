@@ -1,4 +1,4 @@
-package com.example.kop.myexampleproject.ui.chart;
+package com.example.kop.myexampleproject.weiget.chart;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;

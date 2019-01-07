@@ -1,4 +1,4 @@
-package com.example.kop.myexampleproject.ui.path;
+package com.example.kop.myexampleproject.weiget.path;
 
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;

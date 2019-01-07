@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.chart.RadarChartActivity">
+    tools:context=".weiget.chart.RadarChartActivity">
 
-    <com.example.kop.myexampleproject.ui.chart.RadarChartView
+    <com.example.kop.myexampleproject.weiget.chart.RadarChartView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintDimensionRatio="1:1" />

@@ -1,4 +1,4 @@
-package com.example.kop.myexampleproject.ui.number;
+package com.example.kop.myexampleproject.weiget.number;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;

@@ -1,4 +1,4 @@
-package com.example.kop.myexampleproject.ui.chart;
+package com.example.kop.myexampleproject.weiget.chart;
 
 import android.content.Context;
 import android.graphics.Canvas;

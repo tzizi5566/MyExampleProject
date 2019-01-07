@@ -84,4 +84,14 @@
         app:layout_constraintRight_toRightOf="@+id/btn_num"
         app:layout_constraintTop_toBottomOf="@+id/btn_num" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_ring"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="ring view"
+        android:textAllCaps="false"
+        app:layout_constraintLeft_toLeftOf="@+id/btn_paging"
+        app:layout_constraintRight_toRightOf="@+id/btn_paging"
+        app:layout_constraintTop_toBottomOf="@+id/btn_paging" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

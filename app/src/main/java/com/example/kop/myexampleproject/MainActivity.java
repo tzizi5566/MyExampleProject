@@ -8,12 +8,13 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import com.example.kop.myexampleproject.ui.architecture.ChronoActivity;
 import com.example.kop.myexampleproject.ui.camera.CameraActivity;
-import com.example.kop.myexampleproject.ui.chart.RadarChartActivity;
-import com.example.kop.myexampleproject.ui.number.NumberActivity;
+import com.example.kop.myexampleproject.weiget.chart.RadarChartActivity;
+import com.example.kop.myexampleproject.weiget.number.NumberActivity;
 import com.example.kop.myexampleproject.ui.paging.PagingActivity;
-import com.example.kop.myexampleproject.ui.path.PathActivity;
+import com.example.kop.myexampleproject.weiget.path.PathActivity;
 import com.example.kop.myexampleproject.ui.recyclerview.RecyclerActivity;
 import com.example.kop.myexampleproject.ui.sqlite.RoomActivity;
+import com.example.kop.myexampleproject.weiget.ring.RingViewActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @OnClick({R.id.btn_rv, R.id.btn_camera, R.id.btn_sqlite, R.id.btn_path, R.id.btn_num, R.id.btn_paging,
-            R.id.btn_viewmodel, R.id.btn_chart})
+            R.id.btn_viewmodel, R.id.btn_chart, R.id.btn_ring})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_rv:
@@ -58,6 +59,10 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.btn_chart:
                 startActivity(new Intent(this, RadarChartActivity.class));
+                break;
+
+            case R.id.btn_ring:
+                startActivity(new Intent(this, RingViewActivity.class));
                 break;
         }
     }

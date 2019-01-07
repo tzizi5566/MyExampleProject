@@ -46,11 +46,12 @@
         </provider>
 
         <activity android:name=".ui.sqlite.RoomActivity" />
-        <activity android:name=".ui.path.PathActivity" />
-        <activity android:name=".ui.number.NumberActivity" />
+        <activity android:name=".weiget.path.PathActivity" />
+        <activity android:name=".weiget.number.NumberActivity" />
         <activity android:name=".ui.paging.PagingActivity" />
         <activity android:name=".ui.architecture.ChronoActivity" />
-        <activity android:name=".ui.chart.RadarChartActivity"></activity>
+        <activity android:name=".weiget.chart.RadarChartActivity" />
+        <activity android:name=".weiget.ring.RingViewActivity"></activity>
     </application>
 
 </manifest>

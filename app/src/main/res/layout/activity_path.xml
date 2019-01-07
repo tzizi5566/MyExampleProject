@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context=".ui.path.PathActivity">
+    tools:context=".weiget.path.PathActivity">
 
-    <com.example.kop.myexampleproject.ui.path.PathView
+    <com.example.kop.myexampleproject.weiget.path.PathView
         android:id="@+id/path_view1"
         android:layout_width="80dp"
         android:layout_height="80dp"
@@ -26,7 +26,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/path_view1" />
 
-    <com.example.kop.myexampleproject.ui.path.PathMeasureView
+    <com.example.kop.myexampleproject.weiget.path.PathMeasureView
         android:id="@+id/path_view_2"
         android:layout_width="250dp"
         android:layout_height="250dp"
@@ -35,7 +35,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/seek_bar" />
 
-    <com.example.kop.myexampleproject.ui.path.PathMeasureView2
+    <com.example.kop.myexampleproject.weiget.path.PathMeasureView2
         android:id="@+id/path_view_3"
         android:layout_width="80dp"
         android:layout_height="80dp"
@@ -44,7 +44,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/path_view_2" />
 
-    <com.example.kop.myexampleproject.ui.path.PathMeasureView3
+    <com.example.kop.myexampleproject.weiget.path.PathMeasureView3
         android:id="@+id/path_view_4"
         android:layout_width="50dp"
         android:layout_height="50dp"
