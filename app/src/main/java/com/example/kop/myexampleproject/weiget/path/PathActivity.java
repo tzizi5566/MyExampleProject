@@ -2,7 +2,6 @@ package com.example.kop.myexampleproject.weiget.path;
 
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import androidx.annotation.RequiresApi;
@@ -17,8 +16,14 @@ public class PathActivity extends AppCompatActivity {
     @BindView(R.id.path_view1)
     PathView mPathView;
 
+    @BindView(R.id.path_view5)
+    PathMeasureView4 mPathView5;
+
     @BindView(R.id.seek_bar)
     SeekBar mSeekBar;
+
+    @BindView(R.id.seek_bar2)
+    SeekBar mSeekBar2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +34,24 @@ public class PathActivity extends AppCompatActivity {
         mSeekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(final SeekBar seekBar, final int progress, final boolean fromUser) {
-                Log.i("kop", "onProgressChanged: " + (float) (progress / 100.0));
-                mPathView.setFraction((float) (progress / 100.0));
+                mPathView.setFraction(progress / 100.0f);
+            }
+
+            @Override
+            public void onStartTrackingTouch(final SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(final SeekBar seekBar) {
+
+            }
+        });
+
+        mSeekBar2.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(final SeekBar seekBar, final int progress, final boolean fromUser) {
+                mPathView5.setPercent(progress / 100.0f);
             }
 
             @Override

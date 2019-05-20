@@ -3,6 +3,7 @@ package com.example.kop.myexampleproject.ui.camera;
 import static android.os.Environment.DIRECTORY_PICTURES;
 
 import android.Manifest.permission;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -13,6 +14,7 @@ import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.provider.Settings;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,7 +26,6 @@ import androidx.core.content.FileProvider;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import com.blankj.utilcode.util.ToastUtils;
 import com.bumptech.glide.Glide;
 import com.example.kop.myexampleproject.R;
 import java.io.File;
@@ -32,7 +33,7 @@ import java.util.ArrayList;
 
 public class CameraActivity extends AppCompatActivity {
 
-    private static int PERMISSION_CAMERA = 666;
+    private static int PERMISSION_REQUEST = 666;
 
     private static int TACK_PHOTO = 999;
 
@@ -46,7 +47,11 @@ public class CameraActivity extends AppCompatActivity {
 
     private String mCropName;
 
-    private ArrayList<String> mList = new ArrayList<>();
+    private ArrayList<String> mRequestList = new ArrayList<>();
+
+    private ArrayList<String> mDeniedList = new ArrayList<>();
+
+    private ArrayList<String> mDeniedForeverList = new ArrayList<>();
 
     private String mPath;
 
@@ -82,20 +87,53 @@ public class CameraActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(final int requestCode, @NonNull final String[] permissions,
             @NonNull final int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == PERMISSION_CAMERA) {
+        if (requestCode == PERMISSION_REQUEST) {
             for (int i = 0; i < grantResults.length; i++) {
                 if (grantResults[i] != PackageManager.PERMISSION_GRANTED) {
-                    boolean showRequestPermission = ActivityCompat
-                            .shouldShowRequestPermissionRationale(this, permissions[i]);
-                    // TODO: 2018/12/14 需要弹窗提示
+                    boolean showRequestPermission = ActivityCompat.shouldShowRequestPermissionRationale(this, permissions[i]);
                     if (showRequestPermission) {
-                        ToastUtils.showShort("权限未申请");
+                        mDeniedList.add(permissions[i]);
                     } else {
-                        ToastUtils.showShort("设置打开申请");
+                        mDeniedForeverList.add(permissions[i]);
                     }
                 }
             }
+
+            if (!mDeniedForeverList.isEmpty()) {
+                showOpenAppSettingDialog();
+                return;
+            }
+
+            if(!mDeniedList.isEmpty()) {
+                showRationaleDialog();
+            }
         }
+    }
+
+    private void showRationaleDialog() {
+        new AlertDialog.Builder(this)
+                .setTitle("权限申请")
+                .setMessage("APP需要这些权限才能正常运行。")
+                .setPositiveButton("确定", (dialog, which) -> {
+                    checkPermission();
+                })
+                .setCancelable(false)
+                .create()
+                .show();
+    }
+
+    private void showOpenAppSettingDialog() {
+        new AlertDialog.Builder(this)
+                .setTitle("权限申请")
+                .setMessage("APP需要这些权限才能正常运行，请去设置页面允许。")
+                .setPositiveButton("设置", (dialog, which) -> {
+                    Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                    intent.setData(Uri.parse("package:" + getPackageName()));
+                    startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                })
+                .setCancelable(false)
+                .create()
+                .show();
     }
 
     /**
@@ -104,6 +142,7 @@ public class CameraActivity extends AppCompatActivity {
     public File getPhotoFile(Context context) {
         final File file;
         if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+            File externalStorageDirectory = Environment.getExternalStorageDirectory();
             File cacheDirectory = context.getExternalFilesDir(DIRECTORY_PICTURES);
             if (cacheDirectory == null) {
                 return null;
@@ -142,15 +181,15 @@ public class CameraActivity extends AppCompatActivity {
      * 检查拍照权限
      */
     private boolean checkPermission() {
-        mList.clear();
+        mRequestList.clear();
         for (final String permission : permissions) {
             if (ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED) {
-                mList.add(permission);
+                mRequestList.add(permission);
             }
         }
-        if (!mList.isEmpty()) {
-            String[] array = mList.toArray(new String[0]);
-            ActivityCompat.requestPermissions(this, array, PERMISSION_CAMERA);
+        if (!mRequestList.isEmpty()) {
+            String[] array = mRequestList.toArray(new String[0]);
+            ActivityCompat.requestPermissions(this, array, PERMISSION_REQUEST);
             return false;
         }
         return true;
@@ -168,7 +207,7 @@ public class CameraActivity extends AppCompatActivity {
         intent.putExtra("outputX", 640);
         intent.putExtra("outputY", 480);
         intent.putExtra("scale", true);
-        mCropName = String.valueOf(System.currentTimeMillis()) + "_crop.jpg";
+        mCropName = System.currentTimeMillis() + "_crop.jpg";
         File file = new File(mPath + "/" + mCropName);
         intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
         intent.putExtra("return-data", false);
@@ -184,7 +223,7 @@ public class CameraActivity extends AppCompatActivity {
     private void takePhoto() {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         mPath = getPhotoFile(this).getPath();
-        String photoName = String.valueOf(System.currentTimeMillis()) + ".jpg";
+        String photoName = System.currentTimeMillis() + ".jpg";
         mUri = getUri(this, mPath + "/" + photoName);
         intent.putExtra(MediaStore.EXTRA_OUTPUT, mUri);
         startActivityForResult(intent, TACK_PHOTO);

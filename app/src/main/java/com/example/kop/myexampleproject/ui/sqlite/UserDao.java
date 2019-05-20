@@ -1,5 +1,6 @@
 package com.example.kop.myexampleproject.ui.sqlite;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -44,4 +45,15 @@ public interface UserDao {
 
     @Update
     Maybe<Integer> update(User user);
+
+    //----------------------------------------------------------
+
+    @Query("SELECT * FROM USER")
+    LiveData<List<User>> searchAll();
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    void insertData(User user);
+
+    @Delete
+    void deleteData(User user);
 }

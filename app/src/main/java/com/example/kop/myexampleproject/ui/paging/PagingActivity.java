@@ -63,18 +63,20 @@ public class PagingActivity extends AppCompatActivity {
         }
 
         @Override
-        public void onBindViewHolder(MyViewHolder holder, int position) {
+        public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
             DataBean data = getItem(position);
             holder.text1.setText(String.valueOf(position));
-            holder.text2.setText(String.valueOf(data.content));
+            if (data != null) {
+                holder.text2.setText(String.valueOf(data.content));
+            }
         }
 
+        @NonNull
         @Override
-        public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             View view = LayoutInflater.from(getApplicationContext())
                     .inflate(android.R.layout.simple_list_item_2, null);
-            MyViewHolder holder = new MyViewHolder(view);
-            return holder;
+            return new MyViewHolder(view);
         }
     }
 
