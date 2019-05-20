@@ -8,6 +8,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import com.example.kop.myexampleproject.ui.architecture.ChronoActivity;
 import com.example.kop.myexampleproject.ui.camera.CameraActivity;
+import com.example.kop.myexampleproject.ui.menu.MenuActivity;
+import com.example.kop.myexampleproject.ui.textview.AutoTextViewActivity;
 import com.example.kop.myexampleproject.weiget.chart.RadarChartActivity;
 import com.example.kop.myexampleproject.weiget.number.NumberActivity;
 import com.example.kop.myexampleproject.ui.paging.PagingActivity;
@@ -26,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @OnClick({R.id.btn_rv, R.id.btn_camera, R.id.btn_sqlite, R.id.btn_path, R.id.btn_num, R.id.btn_paging,
-            R.id.btn_viewmodel, R.id.btn_chart, R.id.btn_ring})
+            R.id.btn_viewmodel, R.id.btn_chart, R.id.btn_ring, R.id.btn_text, R.id.btn_menu})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_rv:
@@ -63,6 +65,14 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.btn_ring:
                 startActivity(new Intent(this, RingViewActivity.class));
+                break;
+
+            case R.id.btn_text:
+                startActivity(new Intent(this, AutoTextViewActivity.class));
+                break;
+
+            case R.id.btn_menu:
+                startActivity(new Intent(this, MenuActivity.class));
                 break;
         }
     }

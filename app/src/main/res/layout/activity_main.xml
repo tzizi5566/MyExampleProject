@@ -94,4 +94,24 @@
         app:layout_constraintRight_toRightOf="@+id/btn_paging"
         app:layout_constraintTop_toBottomOf="@+id/btn_paging" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="auto textview"
+        android:textAllCaps="false"
+        app:layout_constraintLeft_toLeftOf="@+id/btn_viewmodel"
+        app:layout_constraintRight_toRightOf="@+id/btn_viewmodel"
+        app:layout_constraintTop_toBottomOf="@+id/btn_viewmodel" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_menu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="menu"
+        android:textAllCaps="false"
+        app:layout_constraintLeft_toLeftOf="@+id/btn_chart"
+        app:layout_constraintRight_toRightOf="@+id/btn_chart"
+        app:layout_constraintTop_toBottomOf="@+id/btn_chart" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
