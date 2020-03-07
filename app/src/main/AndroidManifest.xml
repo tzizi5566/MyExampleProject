@@ -17,8 +17,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.menu.MenuActivity"></activity>
-        <activity android:name=".ui.textview.AutoTextViewActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -54,6 +52,11 @@
         <activity android:name=".ui.architecture.ChronoActivity" />
         <activity android:name=".weiget.chart.RadarChartActivity" />
         <activity android:name=".weiget.ring.RingViewActivity" />
+        <activity android:name=".ui.textview.AutoTextViewActivity" />
+        <activity android:name=".ui.menu.MenuActivity" />
+        <activity android:name=".weiget.point.PointActivity" />
+        <activity android:name=".weiget.degree.DegreeActivity" />
+        <activity android:name=".ui.log.LogActivity" />
     </application>
 
 </manifest>

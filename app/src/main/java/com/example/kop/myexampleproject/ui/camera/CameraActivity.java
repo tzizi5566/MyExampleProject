@@ -3,13 +3,13 @@ package com.example.kop.myexampleproject.ui.camera;
 import static android.os.Environment.DIRECTORY_PICTURES;
 
 import android.Manifest.permission;
-import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
+import android.graphics.Bitmap.CompressFormat;
 import android.net.Uri;
-import android.os.Build;
+import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
 import android.os.Environment;
@@ -88,9 +88,13 @@ public class CameraActivity extends AppCompatActivity {
             @NonNull final int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == PERMISSION_REQUEST) {
+            mDeniedList.clear();
+            mDeniedForeverList.clear();
+
             for (int i = 0; i < grantResults.length; i++) {
                 if (grantResults[i] != PackageManager.PERMISSION_GRANTED) {
-                    boolean showRequestPermission = ActivityCompat.shouldShowRequestPermissionRationale(this, permissions[i]);
+                    boolean showRequestPermission = ActivityCompat
+                            .shouldShowRequestPermissionRationale(this, permissions[i]);
                     if (showRequestPermission) {
                         mDeniedList.add(permissions[i]);
                     } else {
@@ -99,19 +103,19 @@ public class CameraActivity extends AppCompatActivity {
                 }
             }
 
-            if (!mDeniedForeverList.isEmpty()) {
-                showOpenAppSettingDialog();
+            if (!mDeniedList.isEmpty()) {
+                showRationaleDialog();
                 return;
             }
 
-            if(!mDeniedList.isEmpty()) {
-                showRationaleDialog();
+            if (!mDeniedForeverList.isEmpty()) {
+                showOpenAppSettingDialog();
             }
         }
     }
 
     private void showRationaleDialog() {
-        new AlertDialog.Builder(this)
+        new Builder(this)
                 .setTitle("权限申请")
                 .setMessage("APP需要这些权限才能正常运行。")
                 .setPositiveButton("确定", (dialog, which) -> {
@@ -123,7 +127,7 @@ public class CameraActivity extends AppCompatActivity {
     }
 
     private void showOpenAppSettingDialog() {
-        new AlertDialog.Builder(this)
+        new Builder(this)
                 .setTitle("权限申请")
                 .setMessage("APP需要这些权限才能正常运行，请去设置页面允许。")
                 .setPositiveButton("设置", (dialog, which) -> {
@@ -160,7 +164,7 @@ public class CameraActivity extends AppCompatActivity {
 
     public Uri getUri(Context context, String path) {
         Uri uri;
-        if (Build.VERSION.SDK_INT >= VERSION_CODES.N) {
+        if (VERSION.SDK_INT >= VERSION_CODES.N) {
             //参数1 上下文；参数2 Provider主机地址 authorities 和配置文件中保持一致 ；参数3  共享的文件
             uri = FileProvider
                     .getUriForFile(context, "com.example.kop.myexampleproject.fileprovider", new File(path));
@@ -211,7 +215,7 @@ public class CameraActivity extends AppCompatActivity {
         File file = new File(mPath + "/" + mCropName);
         intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
         intent.putExtra("return-data", false);
-        intent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString());
+        intent.putExtra("outputFormat", CompressFormat.JPEG.toString());
         intent.putExtra("noFaceDetection", true);
         intent = Intent.createChooser(intent, "裁剪图片");
         startActivityForResult(intent, CROP_PHOTO);

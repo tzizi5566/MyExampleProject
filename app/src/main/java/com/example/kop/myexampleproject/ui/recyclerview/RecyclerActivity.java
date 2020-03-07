@@ -7,16 +7,17 @@ import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.LinearLayoutCompat;
+import androidx.appcompat.widget.LinearLayoutCompat.LayoutParams;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.example.kop.myexampleproject.R;
+import com.example.kop.myexampleproject.ui.recyclerview.StationListAdapter.OnStationSelectListener;
 import java.util.ArrayList;
 
-public class RecyclerActivity extends AppCompatActivity implements StationListAdapter.OnStationSelectListener {
+public class RecyclerActivity extends AppCompatActivity implements OnStationSelectListener {
 
     @BindView(R.id.rv)
     RecyclerView mRv;
@@ -80,7 +81,7 @@ public class RecyclerActivity extends AppCompatActivity implements StationListAd
                 ImageView imageView1 = childViewHolder.getView(R.id.iv_location);
                 ImageView imageView2 = childViewHolder.getView(R.id.iv_station_status);
                 TextView textView = childViewHolder.getView(R.id.tv_station);
-                LinearLayoutCompat.LayoutParams params = (LinearLayoutCompat.LayoutParams) textView.getLayoutParams();
+                LayoutParams params = (LayoutParams) textView.getLayoutParams();
 
                 int height1 = imageView1.getHeight();
                 int height2 = imageView2.getHeight();
@@ -117,5 +118,10 @@ public class RecyclerActivity extends AppCompatActivity implements StationListAd
     public void selectStation(int pos, String code) {
         mAdapter.selectStation(pos);
         mRv.smoothScrollToPosition(pos);
+    }
+
+    @Override
+    public void onBackPressed() {
+        supportFinishAfterTransition();
     }
 }

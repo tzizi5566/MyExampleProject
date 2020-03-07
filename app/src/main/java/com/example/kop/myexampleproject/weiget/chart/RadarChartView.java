@@ -58,7 +58,7 @@ public class RadarChartView extends View {
     @Override
     protected void onDraw(final Canvas canvas) {
         super.onDraw(canvas);
-        canvas.translate(mWidth / 2, mHeight / 2);
+        canvas.translate(mWidth / 2f, mHeight / 2f);
 
         canvas.drawPath(mLinePath, mLinePaint);
         canvas.drawPath(mContentPath, mContentPaint);
@@ -89,7 +89,7 @@ public class RadarChartView extends View {
             mHeight = minHeight;
         }
 
-        mRadius = Math.min(mWidth, mHeight) / 2 * 0.8f;
+        mRadius = Math.min(mWidth, mHeight) / 2f * 0.8f;
     }
 
     @Override
